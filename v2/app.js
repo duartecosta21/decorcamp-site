@@ -106,7 +106,7 @@ if(lista){
     var m=cards.filter(ok);
     cards.forEach(function(c){var show=m.indexOf(c)>-1&&m.indexOf(c)<shown;
       if(show){if(c.hidden){c.hidden=false}}else if(!c.hidden){c.hidden=true}});
-    st.textContent=m.length+' '+(m.length===1?'avaliação':'avaliações')+(m.length>shown?', mostrando '+shown:'');
+    st.textContent=m.length+' '+(m.length===1?'avaliação':'avaliações');
     mais.hidden=m.length<=shown;
   }
   function chips(sel,fn){$$(sel).forEach(function(b){b.addEventListener('click',function(){
@@ -126,7 +126,7 @@ if(fm){
   var ta=$('textarea',fm),a=$('#fwa'),n=a.dataset.n;
   var M={cortinas:'cortinas de tecido',persianas:'persianas',rolo:'rolô, Double Vision ou Romana',motor:'motorização para cortinas ou persianas',toldos:'toldo',papel:'papel de parede',outro:'cortinas ou persianas'};
   var edit=false;
-  function msg(){var v=($('input:checked',fm)||{}).value||'outro';return 'Olá! Vim pelo site da Decor Camp e quero um orçamento de '+M[v]+'. Moro em [bairro/cidade]. Pode me ajudar?'}
+  function msg(){var v=($('input:checked',fm)||{}).value||'outro';return 'Olá! Vim pelo site da Decor Camp e quero um orçamento de '+M[v]+'. Pode me ajudar?'}
   function link(){a.href='https://wa.me/'+n+'?text='+encodeURIComponent(ta.value)}
   ta.value=msg();link();
   $$('input[name=prod]',fm).forEach(function(i){i.addEventListener('change',function(){if(!edit)ta.value=msg();link()})});
